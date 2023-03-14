@@ -22,8 +22,15 @@ startBtn.addEventListener('click', function() {
 });
 
 function timer(){
-secondsLeft --;
 
+const timerInterval = setInterval(function() {
+    secondsLeft --;
+
+if(secondsLeft === 0) {
+    clearInterval(timerInterval)
+
+}
+}, 1000);
 
 
 }
