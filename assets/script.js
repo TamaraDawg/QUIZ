@@ -1,20 +1,20 @@
 
 //HTML document links 
-const quizDocument = document.getElementById('quiz')
-const startBtn = document.getElementById('startbtn')
-const questions = document.getElementById('questions')
-const answers = document.getElementById('answers')
+const quizDocumentEl = document.getElementById('quiz')
+const startBtnEl = document.getElementById('startbtn')
+const questionsEl = document.getElementById('questions')
+const answersEl = document.getElementById('answers')
 const timer = document.getElementById('timer')
-const score = document.getElementById('score')
+const scoreEl = document.getElementById('score')
 
 //Timer default count 
 let secondsLeft = 10;
 
-
-startBtn.addEventListener('click', function() {
+//Playing Quiz function
+startBtnEl.addEventListener('click', function() {
    //start button, prevents refresh, hides button
-    startBtn.preventDefault();
-    startBtn.hidden = true;
+    startBtnEl.preventDefault();
+    startBtnEl.hidden = true;
     //calls for timer to start
     timer()
 
@@ -31,6 +31,42 @@ if(secondsLeft === 0) {
 
 }
 }, 1000);
-
+displayQuestion(questionIndex[currentQuestionIndex]);
 
 }
+
+//Questions and answers 
+const questionIndex = [
+    {
+        question: "What does CSS stand for?",
+        answer:["Cascading Style Sheets", "Customise Style Sheets", "Creative Style Sheets", "Contextual Style Sheets"],
+        correctAnswer: "Cascading Style Sheets" ,
+    },
+    {
+        question: "How do you select an Element from a HTML file, in JS?" ,
+        answer: ,
+        correctAnswer: "getElementById()" ,
+    },
+    {
+        question: "What Primitive type is TRUE/FALSE?",
+        answer:,
+        correctAnswer: "Boolean",
+    },
+    {
+        question: "How do you select a class or ID from a CSS file, in JS?",
+        answer:,
+        correctAnswer: ".querySelector()",
+    },
+    {
+        question: "Java and Javascript are the same thing",
+        answer: ["True", "False"],
+        correctAnswer: "False",
+    },
+    {
+        question: "Arrays in Javascript can be used to store:" ,
+        answer:,
+        correctAnswer: "All of the Above",
+    },
+    
+    ];
+    
