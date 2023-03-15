@@ -1,72 +1,101 @@
 
 //HTML document links 
-const quizDocumentEl = document.getElementById('quiz')
-const startBtnEl = document.getElementById('startbtn')
-const questionsEl = document.getElementById('questions')
-const answersEl = document.getElementById('answers')
-const timer = document.getElementById('timer')
-const scoreEl = document.getElementById('score')
+const quizDocumentEl = document.querySelector('#quiz'),
+const startBtnEl = document.querySelector('#startbtn'),
+const questionsEl = document.querySelector('#questions'),
+const answersEl = document.querySelector('#answers'),
+const timer = document.querySelector('#timer'),
+const scoreEl = document.querySelector('#score');
 
 //Timer default count 
 let secondsLeft = 10;
 
-//Playing Quiz function
 startBtnEl.addEventListener('click', function() {
-   //start button, prevents refresh, hides button
-    startBtnEl.preventDefault();
-    startBtnEl.hidden = true;
-    //calls for timer to start
-    timer()
-
-
+    console.log("BUTTON CLICKED!");
 });
+//Playing Quiz function
+function playQuiz() {
 
-function timer(){
+   //start button, prevents refresh, hides button
+   event.preventDefault();
+    //log to make sure it works
+    console.log("Started");
 
-const timerInterval = setInterval(function() {
-    secondsLeft --;
+    startBtnEl.classList.add('hide');
+    
+    questionsEl.classList.remove('hide');
+    //calls for timer to start
 
-if(secondsLeft === 0) {
-    clearInterval(timerInterval)
+    //displayQuestion(0)
 
-}
-}, 1000);
-displayQuestion(questionIndex[currentQuestionIndex]);
+    //timer();
 
-}
+
+};
+
+//function timer(){
+
+//const timerInterval = setInterval(function() {
+  //  secondsLeft --;
+//console.log('Second Left:', secondsLeft);
+//if(secondsLeft === 0) {
+   // clearInterval(timerInterval)
+
+//}
+//displayQuestion(questionIndex[currentQuestionIndex]);
+
+//}, 1000);
+
+
+//}
+
+
+
+
+
+
+
+
+
 
 //Questions and answers 
-const questionIndex = [
+//const questionIndex = [
+   // {
+       // question: "What does CSS stand for?",
+     //   answer:["Cascading Style Sheets", "Customise Style Sheets", "Creative Style Sheets", "Contextual Style Sheets"],
+     //   correctAnswer: "Cascading Style Sheets" ,
+   // },
     {
-        question: "What does CSS stand for?",
-        answer:["Cascading Style Sheets", "Customise Style Sheets", "Creative Style Sheets", "Contextual Style Sheets"],
-        correctAnswer: "Cascading Style Sheets" ,
-    },
-    {
-        question: "How do you select an Element from a HTML file, in JS?" ,
-        answer: ,
-        correctAnswer: "getElementById()" ,
-    },
-    {
-        question: "What Primitive type is TRUE/FALSE?",
-        answer:,
-        correctAnswer: "Boolean",
-    },
-    {
-        question: "How do you select a class or ID from a CSS file, in JS?",
-        answer:,
-        correctAnswer: ".querySelector()",
-    },
-    {
-        question: "Java and Javascript are the same thing",
-        answer: ["True", "False"],
-        correctAnswer: "False",
-    },
-    {
-        question: "Arrays in Javascript can be used to store:" ,
-        answer:,
-        correctAnswer: "All of the Above",
-    },
+     //   question: "How do you select an Element from a HTML file, in JS?" ,
+    //    answer: [".getElId()", ".getElementbyId()", ".selectID()", "You can't"],
+    //    correctAnswer: ".getElementbyId()" ,
+    //},
+    //{
+    //    question: "What Primitive type is TRUE/FALSE?",
+     //   answer: ["String", "Number", "Null", "Boolean"] ,
+     //   correctAnswer: "Boolean",
+   // },
+   // {
+    //    question: "How do you select a class or ID from a CSS file, in JS?",
+    //    answer: [ ".cssselector()", ".classidgrab()", ".querySelector()", "None of the above" ],
+    //    correctAnswer: ".querySelector()",
+   // },
+    //{
+    //    question: "Java and Javascript are the same thing",
+    //    answer: ["True", "False"],
+   //     correctAnswer: "False",
+   // },
+   // {
+   //     question: "Arrays in Javascript can be used to store:" ,
+    //    answer: ["b"],
+    //    correctAnswer: "All of the Above",
+    //},
     
-    ];
+   // ];
     
+   // function answerChosen() {
+    //    console.log('Answer Chosen');
+
+
+   // }
+   // answersEl.addEventListener('click', answerChosen);

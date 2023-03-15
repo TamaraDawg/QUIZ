@@ -6,6 +6,7 @@
 :root {
    --dark: rgb(52, 48, 54);
    --light: rgb(220, 171, 243);
+   --btn: rgb(178, 114, 207);
    background-color: var(--dark);
     box-sizing: border-box;
    font-family: 'Play', sans-serif;
@@ -38,3 +39,80 @@ body {
     margin: 0 auto;
     box-shadow: 0 0 10px 2px var(--light);
 }
+
+/* button styling */
+.btn  {
+    font-family: 'Play', sans-serif;
+    font-size: 1.76rem;
+    color: white;
+    background-color: var(--btn);
+    display: grid;
+    margin: 20px 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.btn:hover , #startbtn:hover {
+    background-color: var(--light) ;
+}
+
+#startbtn:active {
+    background-color: purple;
+}
+/*if button is correct answer*/
+.btncorrect {
+    font-family: 'Play', sans-serif;
+    font-size: 1.76rem;
+    color: rgb(30, 100, 30);
+    background-color: var(--btn);
+    display: grid;
+    margin: 20px 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 20px;
+   background-color: rgb(159, 223, 159);
+}
+ 
+
+
+/* if button is wrong answer*/
+.btnwrong {
+    font-family: 'Play', sans-serif;
+    font-size: 1.76rem;
+    color: rgb(153, 37, 37);
+    background-color: var(--btn);
+    display: grid;
+    margin: 20px 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 20px;
+ background-color: lightcoral;
+}
+
+.controls {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    text-align: center;
+}
+
+
+#startbtn {
+    font-family: 'Play', sans-serif;
+    color: white;
+    background-color: var(--btn);
+    margin: 20px 0;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 3rem; 
+}
+
+
+
+.hide {
+    display: none;
+}
+
+   
