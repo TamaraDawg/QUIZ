@@ -107,6 +107,7 @@ body {
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 3rem; 
+    margin-left: 16rem;
 }
 
 
@@ -115,4 +116,14 @@ body {
     display: none;
 }
 
-   
+   /* small screen compatibility */
+@media screen and (max-width: 770px) {
+    #startbtn {
+       margin: 20px auto;
+       display: block;
+    }
+
+    #startbtn.hide-small {
+        display: none
+    }
+}

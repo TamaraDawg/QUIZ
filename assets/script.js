@@ -10,6 +10,43 @@ const questionContainerEl = document.getElementById('question-container')
 //Timer default count 
 let secondsLeft = 10;
 
+
+//Questions and answers 
+var questionIndex = [
+    {
+        question: "What does CSS stand for?",
+        answer:["Cascading Style Sheets", "Customise Style Sheets", "Creative Style Sheets", "Contextual Style Sheets"],
+        correctAnswer: "Cascading Style Sheets" , correct: true
+    },
+    {
+        question: "How do you select an Element from a HTML file, in JS?" ,
+        answer: [".getElId()", ".getElementbyId()", ".selectID()", "You can't"],
+        correctAnswer: ".getElementbyId()", correct: true ,
+    },
+    {
+        question: "What Primitive type is TRUEFALSE?",
+        answer: ["String", "Number", "Null", "Boolean"] ,
+        correctAnswer: "Boolean", correct: true,
+    },
+    {
+        question: "How do you select a class or ID from a CSS file, in JS?",
+        answer: [ ".cssselector()", ".classidgrab()", ".querySelector()", "None of the above" ],
+        correctAnswer: ".querySelector()", correct: true,
+    },
+    {
+        question: "Java and Javascript are the same thing",
+        answer: ["True", "False"],
+        correctAnswer: "False", correct: true,
+    },
+    {
+        question: "Arrays in Javascript can be used to store:" ,
+        answer: ["b"],
+        correctAnswer: "All of the Above", correct: true
+    },
+    
+    ];
+
+
 startBtn.addEventListener('click', playQuiz);
     
 console.log("BUTTON CLICKED!");
@@ -26,18 +63,27 @@ let questionShuffle, currentQuestionIndex;
      console.log("Started");
      
      startBtn.classList.add('hide');
-
+     //so start button hides on small screens
+    startBtn.classList.add('hide-small')
      questionShuffle = questionIndex.sort(() => Math.random() - .5)
      currentQuestionIndex = 0
 
     
     questionContainerEl.classList.remove('hide');
+    nextQuestion()
     //calls for timer to start
 
-    timer();
+    //timer();
 
 
 };
+
+
+
+
+
+
+
 
 
 
@@ -46,8 +92,8 @@ function nextQuestion(){
 }
 
 
-function  showQuestion(questionIndex) {
-    questionsEl.innerText = question.question
+function  showQuestion(question) {
+    questionsEl.innerText = question.question;
 }
 //- function timer(){
 
@@ -65,53 +111,10 @@ function  showQuestion(questionIndex) {
 
 //-}
 
+ 
+function answerChosen() {
+    console.log('Answer Chosen');
 
 
-
-
-
-
-
-
-
-//Questions and answers 
-const questionIndex = [
-    {
-        question: "What does CSS stand for?",
-        answer:["Cascading Style Sheets", "Customise Style Sheets", "Creative Style Sheets", "Contextual Style Sheets"],
-        correctAnswer: "Cascading Style Sheets" ,
-    },
-    {
-        question: "How do you select an Element from a HTML file, in JS?" ,
-        answer: [".getElId()", ".getElementbyId()", ".selectID()", "You can't"],
-        correctAnswer: ".getElementbyId()" ,
-    },
-    {
-        question: "What Primitive type is TRUEFALSE?",
-        answer: ["String", "Number", "Null", "Boolean"] ,
-        correctAnswer: "Boolean",
-    },
-    {
-        question: "How do you select a class or ID from a CSS file, in JS?",
-        answer: [ ".cssselector()", ".classidgrab()", ".querySelector()", "None of the above" ],
-        correctAnswer: ".querySelector()",
-    },
-    {
-        question: "Java and Javascript are the same thing",
-        answer: ["True", "False"],
-        correctAnswer: "False",
-    },
-    {
-        question: "Arrays in Javascript can be used to store:" ,
-        answer: ["b"],
-        correctAnswer: "All of the Above",
-    },
-    
-    ];
-    
-    function answerChosen() {
-        console.log('Answer Chosen');
-
-
-    }
-     answersEl.addEventListener('click', answerChosen);
+}
+ answersEl.addEventListener('click', answerChosen);0
