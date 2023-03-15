@@ -1,0 +1,40 @@
+
+/*custom google font*/
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+
+/* entire page defaults */
+:root {
+   --dark: rgb(52, 48, 54);
+   --light: rgb(220, 171, 243);
+   background-color: var(--dark);
+    box-sizing: border-box;
+   font-family: 'Play', sans-serif;
+   
+}
+
+h1 {
+    padding-top: 5rem;
+text-align: center;
+margin-top: 9rem;
+top:0;
+color: var(--light);
+font-size: 4rem;
+}
+
+body {
+   padding: 0;
+   margin: 0;
+   align-items: center;
+   width: 100vw;
+   height: 100vh;
+}
+
+#quiz {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 2px var(--light);
+}
