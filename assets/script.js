@@ -88,12 +88,35 @@ let questionShuffle, currentQuestionIndex;
 
 
 function nextQuestion(){
+    reset()
     showQuestion(questionShuffle[currentQuestionIndex]);
 }
 
 
 function  showQuestion(question) {
     questionsEl.innerText = question.question;
+    question.answer.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText = answer;
+        button.classList.add('btn')
+        if (question.correctAnswer === answer) {
+            button.dataset.correct = true
+        }
+        button.addEventListener('click', answerSelect)
+        answersEl.appendChild(button)
+    })
+}
+
+
+function answerSelect (e) {
+
+
+}
+
+function reset() {
+    while (answersEl.firstChild) {
+        answersEl.removeChild(answersEl.firstChild)
+    }
 }
 //- function timer(){
 
