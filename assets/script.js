@@ -9,7 +9,7 @@ const scoreEl = document.querySelector('#score')
 const questionContainerEl = document.getElementById('question-container')
 //Timer default count 
 let secondsLeft = 30;
-
+let totalscore = 0;
 
 //Questions and answers 
 var questionIndex = [
@@ -83,12 +83,13 @@ startBtn.addEventListener('click', playQuiz);
     function minusTime() {
         const timerInterval = setInterval(function() { 
         secondsLeft--;
-        if (secondsLeft === 0) { {
+        //ensures timer cannot go into negatives
+        if (secondsLeft <= 0) { 
             clearInterval(timerInterval);
+            secondsLeft= 0;
         }
-    }
-        }, 1000);
-    }
+    }, 1000);
+        }
 
 
 };
@@ -129,16 +130,27 @@ const answerChosen = e.target
 const correct = answerChosen.dataset.correct;
 statusClass(answerChosen, correct);
 if (!correct) {
+secondsLeft -=5;
+//also checks that secondsLeft won't be sent into negatives 
+if (secondsLeft < 0) {
+    secondsLeft= 0;
+}
 Array.from(answersEl.children).forEach(button => {
 if (button !== answerChosen) {
     if (!button.classList.contains('wrong')) {
    statusClass(button, false);
    if (button.dataset.correct) {
     statusClass(button, true);
+    
    }
     }
 }
 });
+} else { 
+    //if correct, add 10 to score
+    totalscore+=10;
+    //update score
+    scoreEl.textContent = totalscore;
 }
 answerChosen.classList.add('selected')
 if(currentQuestionIndex < questionShuffle.length -1) {
@@ -171,26 +183,6 @@ function reset() {
         answersEl.removeChild(answersEl.firstChild)
     }
 }
-//- function timer(){
 
-//-var timerInterval = setInterval(function() {
-   //- secondsLeft --;
-//-console.log('Second Left:', secondsLeft);
-//-if(secondsLeft === 0) {
-  //-  clearInterval(timerInterval)
-
-//-}
-//- displayQuestion(questionIndex[currentQuestionIndex]);
-
-//-}, 1000);
-
-
-//-}
 
  
-function answerChosen() {
-    console.log('Answer Chosen');
-
-
-}
- answersEl.addEventListener('click', answerChosen);0
