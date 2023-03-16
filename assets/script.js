@@ -16,32 +16,32 @@ var questionIndex = [
     {
         question: "What does CSS stand for?",
         answer:["Cascading Style Sheets", "Customise Style Sheets", "Creative Style Sheets", "Contextual Style Sheets"],
-        correctAnswer: "Cascading Style Sheets" , correct: true
+        correctAnswer: "Cascading Style Sheets" , 
     },
     {
         question: "How do you select an Element from a HTML file, in JS?" ,
         answer: [".getElId()", ".getElementbyId()", ".selectID()", "You can't"],
-        correctAnswer: ".getElementbyId()", correct: true ,
+        correctAnswer: ".getElementbyId()", 
     },
     {
         question: "What Primitive type is TRUEFALSE?",
         answer: ["String", "Number", "Null", "Boolean"] ,
-        correctAnswer: "Boolean", correct: true,
+        correctAnswer: "Boolean",
     },
     {
         question: "How do you select a class or ID from a CSS file, in JS?",
         answer: [ ".cssselector()", ".classidgrab()", ".querySelector()", "None of the above" ],
-        correctAnswer: ".querySelector()", correct: true,
+        correctAnswer: ".querySelector()",
     },
     {
         question: "Java and Javascript are the same thing",
         answer: ["True", "False"],
-        correctAnswer: "False", correct: true,
+        correctAnswer: "False", 
     },
     {
         question: "Arrays in Javascript can be used to store:" ,
         answer: ["b"],
-        correctAnswer: "All of the Above", correct: true
+        correctAnswer: "All of the Above", 
     },
     
     ];
@@ -49,7 +49,7 @@ var questionIndex = [
 
 startBtn.addEventListener('click', playQuiz);
     
-console.log("BUTTON CLICKED!");
+//console.log("BUTTON CLICKED!");
 
 //randomised questions
 let questionShuffle, currentQuestionIndex;
@@ -109,10 +109,29 @@ function  showQuestion(question) {
 
 
 function answerSelect (e) {
+const answerChosen = e.target 
+const correct = answerChosen.dataset.correct
+statusClass(document.body, correct)
+Array.from(answersEl.children).forEach(button => {
 
+   statusClass(button, button.dataset.correct)
+})
 
 }
 
+function statusClass(element, correct) {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add('btncorrect')
+    } else {
+        element.classList.add('btnwrong')
+    }
+    }
+
+function clearStatusClass(element) {
+    element.classList.remove('btncorrect')
+    element.classList.remove('btnwrong')
+}
 function reset() {
     while (answersEl.firstChild) {
         answersEl.removeChild(answersEl.firstChild)
