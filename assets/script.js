@@ -90,6 +90,7 @@ let questionShuffle, currentQuestionIndex;
 function nextQuestion(){
     reset()
     showQuestion(questionShuffle[currentQuestionIndex]);
+    currentQuestionIndex++
 }
 
 
@@ -110,27 +111,37 @@ function  showQuestion(question) {
 
 function answerSelect (e) {
 const answerChosen = e.target 
-const correct = answerChosen.dataset.correct
-statusClass(document.body, correct)
+const correct = answerChosen.dataset.correct;
+statusClass(answerChosen, correct);
+if (!correct) {
 Array.from(answersEl.children).forEach(button => {
-
-   statusClass(button, button.dataset.correct)
-})
-
+if (button !== answerChosen) {
+    if (!button.classList.contains('wrong')) {
+   statusClass(button, false);
+   if (button.dataset.correct) {
+    statusClass(button, true);
+   }
+    }
 }
+});
+}
+answerChosen.classList.add('selected')
+}
+
 
 function statusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
-        element.classList.add('btncorrect')
+        element.classList.add('correct')
     } else {
-        element.classList.add('btnwrong')
+        element.classList.add('wrong')
     }
     }
 
 function clearStatusClass(element) {
-    element.classList.remove('btncorrect')
-    element.classList.remove('btnwrong')
+    element.classList.remove('btn')
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
 }
 function reset() {
     while (answersEl.firstChild) {

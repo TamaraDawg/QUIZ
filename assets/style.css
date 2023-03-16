@@ -57,11 +57,11 @@ body {
     background-color: var(--light) ;
 }
 
-#startbtn:active {
+.start-btn:active {
     background-color: purple;
 }
 /*if button is correct answer*/
-.btncorrect {
+.correct {
     font-family: 'Play', sans-serif;
     font-size: 1.76rem;
     color: rgb(30, 100, 30);
@@ -73,10 +73,14 @@ body {
     background-color: rgb(159, 223, 159);
 }
  
+.selected {
+    outline: none;
+    box-shadow: 0 0 10px purple;
+}
 
 
 /* if button is wrong answer*/
-.btnwrong {
+.wrong  {
     font-family: 'Play', sans-serif;
     font-size: 1.76rem;
     color: rgb(153, 37, 37);
