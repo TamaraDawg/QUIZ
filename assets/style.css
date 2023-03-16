@@ -40,6 +40,18 @@ body {
     box-shadow: 0 0 10px 2px var(--light);
 }
 
+#timer {
+    font-size: 2rem;
+    color: var(--light);
+}
+#score {
+    color: var(--light);
+    text-align: right;
+    font-size: 1.5rem;
+}
+#questions {
+    font-size: 1.75rem;
+}
 /* button styling */
 .btn  {
     font-family: 'Play', sans-serif;

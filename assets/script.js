@@ -8,7 +8,7 @@ const timer = document.querySelector('#timer')
 const scoreEl = document.querySelector('#score')
 const questionContainerEl = document.getElementById('question-container')
 //Timer default count 
-let secondsLeft = 10;
+let secondsLeft = 30;
 
 
 //Questions and answers 
@@ -47,13 +47,20 @@ var questionIndex = [
     ];
 
 
-startBtn.addEventListener('click', playQuiz);
-    
-//console.log("BUTTON CLICKED!");
-
 //randomised questions
 let questionShuffle, currentQuestionIndex;
 
+
+function playTimer() {
+    timer.textContent = secondsLeft;
+}
+setInterval(playTimer, 1000);
+
+
+
+startBtn.addEventListener('click', playQuiz);
+    
+//console.log("BUTTON CLICKED!");
 //Playing Quiz function
  function playQuiz() {
 
@@ -71,9 +78,17 @@ let questionShuffle, currentQuestionIndex;
     
     questionContainerEl.classList.remove('hide');
     nextQuestion()
-    //calls for timer to start
-
-    //timer();
+    minusTime()
+    //timer starts decrementing
+    function minusTime() {
+        const timerInterval = setInterval(function() { 
+        secondsLeft--;
+        if (secondsLeft === 0) { {
+            clearInterval(timerInterval);
+        }
+    }
+        }, 1000);
+    }
 
 
 };
@@ -126,6 +141,14 @@ if (button !== answerChosen) {
 });
 }
 answerChosen.classList.add('selected')
+if(currentQuestionIndex < questionShuffle.length -1) {
+    setTimeout(() => {
+        nextQuestion();
+    },1000);
+
+} else {
+    //highscore shows, end of quiz
+}
 }
 
 
