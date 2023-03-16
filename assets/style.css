@@ -65,11 +65,11 @@ body {
     padding: 10px 20px;
 }
 
-.btn:hover , #startbtn:hover {
+.btn:hover , #startbtn:hover, #submitbtn:hover {
     background-color: var(--light) ;
 }
 
-.start-btn:active {
+.start-btn:active, .submitb:active {
     background-color: purple;
 }
 /*if button is correct answer*/
@@ -123,15 +123,60 @@ body {
     font-size: 3rem; 
     margin-left: 16rem;
 }
+/*end page CSS*/
 
+h2 {
+    color: var(--light);
+    font-size: 1.75rem;
+    margin: 0px auto;
+    text-align: center;
+}
 
+.boldtextcss, #playername {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.theend {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 2px var(--light);
+}
+
+#finalscore {
+    text-align: center;
+    font-size: 1.25rem;
+
+}
+
+#submitbtn {
+    border: 0;
+
+    font-family: 'Play', sans-serif;
+    color: white;
+    background-color: var(--btn);
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.5rem; 
+}
+/*hide class for javascript */
 
 .hide {
     display: none;
 }
 
    /* small screen compatibility */
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 922px) {
     #startbtn {
        margin: 20px auto;
        display: block;
@@ -140,4 +185,12 @@ body {
     #startbtn.hide-small {
         display: none
     }
+}
+
+/*footer css */
+ 
+footer {
+    color: white;
+    margin-top: 5rem;
+    text-align: center;
 }
