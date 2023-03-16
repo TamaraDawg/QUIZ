@@ -1,5 +1,5 @@
 
-//HTML document links 
+//HTML document links for general structure and content
 const quizDocumentEl = document.querySelector('#quiz')
 const startBtn = document.querySelector('#startbtn')
 const questionsEl = document.querySelector('#questions')
@@ -9,8 +9,16 @@ const scoreEl = document.querySelector('#score')
 const questionContainerEl = document.getElementById('question-container')
 const endPage = document.getElementById('end-screen')
 const endofquizresult = document.getElementById('finalscore')
-
+//highscore/player data (submit button for endpage)
+const highScorePresentation = document.getElementById('currenths');
+const submitBtn = document.getElementById('submitbtn');
+const highScorePage = document.getElementById('highscorepage');
+highScorePage.classList.add('hide');
 let highScore = 0;
+// current highscore retrieved from local storage if applicable 
+if (localStorage.getItem("highScore")) {
+    highScore = localStorage.getItem("highScore");
+}
 //Timer default count 
 let secondsLeft = 30;
 //default score count
@@ -163,12 +171,12 @@ function answerSelect(e) {
     }
     answerChosen.classList.add('selected')
     if (currentQuestionIndex === questionShuffle.length - 1) {
-        endQuiz() 
-    }else{ 
+        endQuiz()
+    } else {
         setTimeout(() => {
             nextQuestion();
         }, 1000);
-}
+    }
 
 
     //highscore shows, end of quiz
@@ -192,17 +200,71 @@ function answerSelect(e) {
     }
 }
 
+//highscore system, if score achieved is higher than current highscore
+if (totalscore > highScore) {
+    highScore = score;
+    localStorage.setItem("highScore", highScore)
+}
+
+
 
 function endQuiz() {
     //questions and answers hidden
     console.log('quiz has ended');
+    //shows endpage screen
     endPage.classList.remove('hide');
+    //removes the questions/quiz section
     quizDocumentEl.classList.add('hide');
-    endofquizresult.textContent = 'Your final score is: ' +  totalscore;
+    //presents final score
+    endofquizresult.textContent = 'Your final score is: ' + totalscore;
+    // document.getElementById("highscore").textContent = highScore;
+    //submit button sends data 
+    //submitBtn.addEventListener("click", highScoreInput());
+}
+
+
+
+ function highScoreInput() {
+            const playerNameInput = document.getElementById('playername');
+            let playerName = ''
+            playerNameInput.addEventListener('input', (event) => {
+                playerName = event.target.value;
+
+                const playerScore = totalscore;
+                localStorage.setItem(playerName, totalscore);
+                console.log('NAME N SCORE:', playerName, totalscore);
+
+
+
+
+            });
+        
+        highScoreShow();
+    
+
+
+function highScoreShow() {
+    let score = {
+        name: playerName,
+        score: totalscore,
+    }
+
+
+    if (totalscore > highScore) {
+
+        highScore = score;
+        localStorage.setItem('highScore', highScore);
+    }
+    highScorePage.classList.remove('hide');
+    endPage.classList.add('hide');
+    highScorePresentation.textContent = 'CURRENT HIGHSCORE: ' + highScore;
+    console.log(highScore);
 
 }
 
+}
+
+
 // function gameOver () {
 //console.log('player lost')
-//}
-
+//

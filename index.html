@@ -7,8 +7,8 @@
     <title>CODING QUIZ</title>
 
     <link rel="stylesheet" href="./assets/style.css">
-    
- 
+
+
 </head>
 
 <body>
@@ -17,15 +17,15 @@
         <h1> Coding Quiz Challenge </h1>
     </header>
     <!--quiz container-->
-    
-    
+
+
     <main id="quiz">
-        
-    <!--timer-->
-        <div id="timer"> 
-                30
-            </div>
-        
+
+        <!--timer-->
+        <div id="timer">
+            30
+        </div>
+
         <!--question container-->
         <section id="question-container" class="hide">
 
@@ -37,39 +37,43 @@
                 <button class="btn"> Answer 3 </button>
                 <button class="btn"> Answer 4 </button>
             </div>
-           
-          
-          
+
+
+
 
         </section>
         <!--CONTROLS CONTAINER-->
         <section id="controls">
             <!--start button-->
-            <button id="startbtn" class = "start-btn"> Start Quiz</button>
+            <button id="startbtn" class="start-btn"> Start Quiz</button>
 
 
         </section>
-  <!--score count container-->
-          <div id="score"> 0 </div>
+        <!--score count container-->
+        <div id="score"> 0 </div>
     </main>
- 
-<!--end screen and highscore input section-->
+
+    <!--end screen and highscore input section-->
     <section id="end-screen" class="theend">
-    <h2> Congrats! You completed the quiz!</h2>
-    <p id = "finalscore"></p>
-    <label for = "pname" class="boldtextcss">WRITE YOUR NAME HERE:</label>
-    <input type="text" id="playername" name="pname">
-    <button id="submitbtn" class="submitb" >submit</button>
-    
-
+        <h2> Congrats! You completed the quiz!</h2>
+        <p id="finalscore"></p>
+        <label for="pname" class="boldtextcss">WRITE YOUR NAME HERE:</label>
+        <input type="text" id="playername" name="pname">
+        <button id="submitbtn" class="submitb">submit</button>
     </section>
+    <!--highscore page-->
+    <section id="highscorepage">
+        <p id="currenths">highscore</p>
+        <ul id="list">
 
+        </ul>
+    </section>
 
     <footer>
         Created by Tamara Sferco
     </footer>
 
-<script src="./assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 
